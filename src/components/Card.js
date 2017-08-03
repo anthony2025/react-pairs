@@ -27,6 +27,7 @@ const StyledCard = styled.div`
   width: 100%;
   height: auto;
   cursor: pointer;
+  transition: .5s;
   background: ${props => {
     if (props.found) return 'inherit'
     if (props.selected) return props.color

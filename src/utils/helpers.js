@@ -1,4 +1,4 @@
-import {sample, shuffle, times} from 'lodash' // TODO: cherrypick by folder
+import {sample, shuffle} from 'lodash' // TODO: cherrypick by folder
 import {CARD_COLORS} from 'utils/config'
 import {generate} from 'shortid'
 
@@ -16,20 +16,17 @@ export const getNewCard = (
 
 export const getPlayeableBoard = (size, colors) => {
   if (size % 2 !== 0) alert('ERROR! board size is not an even integer')
-  const newBoard = []
-
-  // TODO: maybe change to while loop
-  times(size, () => {
-    if (newBoard.length + 1 > size) return
-    newBoard.push(getNewCard(), getNewCard())
-  })
-
-  return shuffle(newBoard)
+  const board = []
+  while (board.length + 2 <= size) {
+    let randomColor = sample(colors)
+    board.push(getNewCard(randomColor), getNewCard(randomColor))
+  }
+  return shuffle(board)
 }
 
 export const getUniformBoard = (size, colors) => {
-  const newBoard = Array(size)
+  const board = Array(size)
   const boardColor = sample(colors)
-  const newCard = getNewCard(boardColor)
-  return newBoard.fill(newCard)
+  const card = getNewCard(boardColor)
+  return board.fill(card)
 }
