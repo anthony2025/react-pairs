@@ -23,7 +23,7 @@ function Card(props) {
   )
 }
 
-const StyledCard = styled.div`
+const StyledCard = styled.button`
   width: 100%;
   height: auto;
   cursor: pointer;

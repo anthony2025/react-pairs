@@ -28,6 +28,9 @@ const Board = styled.div`
   height: 90vh;
   width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 10px;
+  & > * {
+    min-height: 100px;
+  }
 `
